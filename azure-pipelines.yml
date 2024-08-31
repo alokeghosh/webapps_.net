@@ -11,7 +11,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  SolutionPath: '**/*.csproj'
+ #SolutionPath: '**/*.csproj'
 
 steps:
 #- script: dotnet build --configuration $(buildConfiguration)
@@ -19,8 +19,9 @@ steps:
 - task: DotNetCoreCLI@2
   displayName: 'Build web project'
   inputs:
-    command: 'build'
-    projects: $(SolutionPath)
+    command: 'publish'
+    publishWebProjects: true
+    #projects: $(SolutionPath)
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'azurewebapp-connection'
