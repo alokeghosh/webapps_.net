@@ -28,3 +28,4 @@ steps:
     appName: 'devops-webapp'
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
     deploymentMethod: 'auto'
+- task: PublishBuildArtifacts@1
