@@ -21,3 +21,10 @@ steps:
   inputs:
     command: 'build'
     projects: $(SolutionPath)
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'azurewebapp-connection'
+    appType: 'webApp'
+    appName: 'devops-webapp'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
