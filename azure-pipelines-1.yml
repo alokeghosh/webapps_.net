@@ -20,7 +20,7 @@ steps:
     publishWebProjects: true
 - task: AzureWebApp@1
   inputs:
-    azureSubscription: 'azurewebapp-connection'
+    azureSubscription: 'azurewebapp-slot-connects'
     appType: 'webApp'
     appName: 'devops-webapp'
     deployToSlotOrASE: true
