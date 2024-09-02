@@ -18,3 +18,13 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: true
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'azurewebapp-connection'
+    appType: 'webApp'
+    appName: 'devops-webapp'
+    deployToSlotOrASE: true
+    resourceGroupName: 'aks-poc-rg'
+    slotName: 'devops-webapp-slots'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
