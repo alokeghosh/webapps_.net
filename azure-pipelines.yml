@@ -18,6 +18,7 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: true
+- task: PublishBuildArtifacts@1
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'azurewebapp-slot-connects'
