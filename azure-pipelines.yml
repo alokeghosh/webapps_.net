@@ -13,15 +13,18 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
-- task: AzureRmWebAppDeployment@4
+- task: DotNetCoreCLI@1
+  displayName: 'Build web project web-app-slot'
   inputs:
-    ConnectionType: 'AzureRM'
+    command: 'publish'
+    publishWebProjects: true
+- task: AzureWebApp@1
+  inputs:
     azureSubscription: 'azurewebapp-slot-connects'
     appType: 'webApp'
-    WebAppName: 'devops-webapp'
+    appName: 'devops-webapp'
     deployToSlotOrASE: true
-    ResourceGroupName: 'aks-poc-rg'
-    SlotName: 'devops-webapp-slots'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    resourceGroupName: 'aks-poc-rg'
+    slotName: 'devops-webapp-slots'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
