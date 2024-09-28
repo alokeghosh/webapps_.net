@@ -27,4 +27,4 @@ steps:
     deployToSlotOrASE: true
     ResourceGroupName: 'aks-poc-rg'
     SlotName: 'devops-webapp-slots'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
