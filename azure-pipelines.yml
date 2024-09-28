@@ -18,4 +18,13 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: true
-
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'azurewebapp-slot-connects'
+    appType: 'webApp'
+    WebAppName: 'devops-webapp'
+    deployToSlotOrASE: true
+    ResourceGroupName: 'aks-poc-rg'
+    SlotName: 'devops-webapp-slots'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
