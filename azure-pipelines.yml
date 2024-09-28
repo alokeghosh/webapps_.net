@@ -15,9 +15,6 @@ variables:
 steps:
 - task: DotNetCoreCLI@1
   displayName: 'Build web project web-app-slot'
-  inputs:
-    command: 'publish'
-    publishWebProjects: true
 - task: PublishBuildArtifacts@1
 - task: AzureWebApp@1
   inputs:
